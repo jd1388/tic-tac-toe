@@ -15,7 +15,6 @@ export default {
         textAlign: 'center',
         paddingTop: '1rem',
         paddingBottom: '1.5rem',
-        textAlign: 'center',
         borderRadius: '1.5rem'
     },
     bluePlayerInputLabel: {
