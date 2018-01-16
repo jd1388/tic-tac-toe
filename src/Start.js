@@ -5,11 +5,27 @@ import Actions from './reducers/Actions';
 
 import Styles from './styles/Start';
 
+const isButtonEnabled = playerData => {
+    const {
+        blue,
+        red
+    } = playerData;
+
+    return blue.name && red.name;
+}
+
+const applyButtonStylings = playerData => {
+    const buttonColor = isButtonEnabled(playerData) ? Styles.startButtonEnabled : Styles.startButtonDisabled;
+
+    return Object.assign({}, Styles.startButton, buttonColor);
+}
+
 export class Start extends Component {
     render() {
         const {
             setBlueName,
-            setRedName
+            setRedName,
+            playerData
         } = this.props;
 
         return (
@@ -23,6 +39,11 @@ export class Start extends Component {
                     <div style={Styles.redPlayerInputLabel}>Red Player</div>
                     <input style={Styles.redPlayerInput} onChange={setRedName}/>
                 </div>
+                <div style={Styles.startButtonContainer}>
+                    <button style={applyButtonStylings(playerData)}>
+                        Start!
+                    </button>
+                </div>
             </div>
         );
     }
@@ -30,7 +51,7 @@ export class Start extends Component {
 
 const mapStateToProps = state => {
     return {
-        playerData: state.playerData
+        playerData: state.PlayerData
     };
 };
 
@@ -40,7 +61,7 @@ const mapDispatchToProps = dispatch => {
             const value = event.target.value,
                 action = {
                     type: Actions.playerData.blue.setName,
-                    name: value
+                    name: value.trim()
                 }
 
             dispatch(action);
@@ -49,7 +70,7 @@ const mapDispatchToProps = dispatch => {
             const value = event.target.value,
                 action = {
                     type: Actions.playerData.red.setName,
-                    name: value
+                    name: value.trim()
                 }
 
             dispatch(action);

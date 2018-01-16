@@ -2,13 +2,11 @@ import Actions from './Actions';
 
 const getInitialState = () => {
     return {
-        playerData: {
-            blue: {
-                name: ''
-            },
-            red: {
-                name: ''
-            }
+        blue: {
+            name: ''
+        },
+        red: {
+            name: ''
         }
     }
 };

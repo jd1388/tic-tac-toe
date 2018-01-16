@@ -28,7 +28,8 @@ export default {
         borderStyle: 'solid',
         width: '50%',
         padding: '0.5rem',
-        fontSize: '1rem'
+        fontSize: '1rem',
+        textAlign: 'center'
     },
     redPlayerContainer: {
         backgroundColor: '#CE6E6E',
@@ -53,6 +54,25 @@ export default {
         borderStyle: 'solid',
         width: '50%',
         padding: '0.5rem',
-        fontSize: '1rem'
+        fontSize: '1rem',
+        textAlign: 'center'
+    },
+    startButtonContainer: {
+        textAlign: 'center',
+        paddingTop: '8rem'
+    },
+    startButton: {
+        fontSize: '1.5rem',
+        padding: '0.75rem',
+        width: '10rem',
+        borderRadius: '1.5rem',
+        borderStyle: 'none',
+        color: 'white'
+    },
+    startButtonEnabled: {
+        backgroundColor: 'green'
+    },
+    startButtonDisabled: {
+        backgroundColor: 'grey'
     }
 }
