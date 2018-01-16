@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Start from './Start';
 import TicTacToe from './TicTacToe';
 
 import GameStates from './helpers/GameStates';
-import reducers from './reducers/reducers';
 
 const styles = {
     appContainer: {
@@ -22,32 +20,21 @@ const stateToRender = gameState => {
 }
 
 class App extends Component {
-    constructor() {
-        super();
-
-        const store = createStore(reducers);
-
-        this.state = {
-            store
-        }
-
-        store.subscribe(() => {
-            console.log('Store State: ', store.getState());
-        });
-    }
-
     render() {
-        // const { gameState } = this.props;
-        const gameState = GameStates.start;
+        const { gameState } = this.props;
 
         return (
-            <Provider store={this.state.store}>
-                <div style={styles.appContainer}>
-                    {stateToRender(gameState)}
-                </div>
-            </Provider>
+            <div style={styles.appContainer}>
+                {stateToRender(gameState)}
+            </div>
         );     
     }
 }
 
-export default App;
+const mapStateToProps = state => {
+    const { gameState } = state.Game;
+
+    return { gameState };
+};
+
+export default connect(mapStateToProps)(App);

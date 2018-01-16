@@ -1,6 +1,6 @@
 let i = 0;
 
-export default class PlayerData {
+export default class Actions {
     static playerData = {
         blue: {
             setName: i++
@@ -8,5 +8,9 @@ export default class PlayerData {
         red: {
             setName: i++
         }
+    }
+
+    static game = {
+        setState: i++
     }
 }
