@@ -15,7 +15,7 @@ const setState = (previousState, property, value) => {
 
 export default (state = getInitialState(), action) => {
     switch(action.type) {
-        case Actions.game.setState:
+        case Actions.game.setGameState:
             return setState(state, 'gameState', action.state);
         default:
             return state;

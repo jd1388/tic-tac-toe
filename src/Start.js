@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Actions from './reducers/Actions';
+import GameStates from './helpers/GameStates';
 
 import Styles from './styles/Start';
 
@@ -25,7 +26,8 @@ export class Start extends Component {
         const {
             setBlueName,
             setRedName,
-            playerData
+            playerData,
+            startGame
         } = this.props;
 
         return (
@@ -40,7 +42,10 @@ export class Start extends Component {
                     <input style={Styles.redPlayerInput} onChange={setRedName}/>
                 </div>
                 <div style={Styles.startButtonContainer}>
-                    <button style={applyButtonStylings(playerData)}>
+                    <button
+                        style={applyButtonStylings(playerData)}
+                        onClick={startGame}
+                    >
                         Start!
                     </button>
                 </div>
@@ -72,6 +77,14 @@ const mapDispatchToProps = dispatch => {
                     type: Actions.playerData.red.setName,
                     name: value.trim()
                 }
+
+            dispatch(action);
+        },
+        startGame: () => {
+            const action = {
+                type: Actions.game.setGameState,
+                state: GameStates.game.inProgress
+            };
 
             dispatch(action);
         }

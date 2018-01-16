@@ -11,6 +11,6 @@ export default class Actions {
     }
 
     static game = {
-        setState: i++
+        setGameState: i++
     }
 }
