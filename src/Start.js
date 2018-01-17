@@ -45,6 +45,7 @@ export class Start extends Component {
                     <button
                         style={applyButtonStylings(playerData)}
                         onClick={startGame}
+                        disabled={!isButtonEnabled(playerData)}
                     >
                         Start!
                     </button>
