@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import BoardRow from './helpers/components/BoardRow';
+
 import Styles from './styles/TicTacToe';
 
 export class TicTacToe extends Component {
@@ -9,8 +11,20 @@ export class TicTacToe extends Component {
 
         return (
             <div>
-                <div style={Styles.blueInfoContainer}>
-                    <span>{playerData.blue.name}</span>
+                <div>
+                    <div style={Styles.blueInfoContainer}>
+                        <span style={Styles.name}>{playerData.blue.name}</span>
+                    </div>
+                    <div style={Styles.redInfoContainer}>
+                        <span style={Styles.name}>{playerData.red.name}</span>
+                    </div>
+                </div>
+                <div style={Styles.gameboardContainer}>
+                    <BoardRow/>
+                    <hr style={Styles.horizontalLine}/>
+                    <BoardRow/>
+                    <hr style={Styles.horizontalLine}/>
+                    <BoardRow/>
                 </div>
             </div>
         );
