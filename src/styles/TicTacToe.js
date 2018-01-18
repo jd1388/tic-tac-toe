@@ -29,5 +29,19 @@ export default {
         borderStyle: 'solid',
         margin: '0 auto',
         borderColor: 'black'
+    },
+    scoreContainer: {
+        textAlign: 'center',
+        fontSize: '4rem'
+    },
+    headerContainer: {
+        display: 'flex',
+        justifyContent: 'space-between'
+    },
+    blueScore: {
+        color: '#73B1E6'
+    },
+    redScore: {
+        color: '#CE6E6E'
     }
 }

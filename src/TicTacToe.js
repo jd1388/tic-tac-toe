@@ -11,7 +11,7 @@ export class TicTacToe extends Component {
 
         return (
             <div>
-                <div>
+                <div style={Styles.headerContainer}>
                     <div style={Styles.blueInfoContainer}>
                         <span style={Styles.name}>{playerData.blue.name}</span>
                     </div>
@@ -19,6 +19,11 @@ export class TicTacToe extends Component {
                         <span style={Styles.name}>{playerData.red.name}</span>
                     </div>
                 </div>
+                <div style={Styles.scoreContainer}>
+                        <span style={Styles.blueScore}>{playerData.blue.score}</span>
+                        <span>{' - '}</span>
+                        <span style={Styles.redScore}>{playerData.red.score}</span>
+                    </div>
                 <div style={Styles.gameboardContainer}>
                     <BoardRow/>
                     <hr style={Styles.horizontalLine}/>

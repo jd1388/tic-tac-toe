@@ -3,10 +3,12 @@ import Actions from './Actions';
 const getInitialState = () => {
     return {
         blue: {
-            name: ''
+            name: '',
+            score: 0
         },
         red: {
-            name: ''
+            name: '',
+            score: 0
         }
     }
 };
