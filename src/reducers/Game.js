@@ -1,9 +1,14 @@
+import Chance from 'chance';
+
 import Actions from './Actions';
 import GameStates from '../helpers/GameStates';
 
 const getInitialState = () => {
+    const chance = Chance();
+
     return {
-        gameState: GameStates.start
+        gameState: GameStates.start,
+        nextMove: chance.pickone(['blue', 'red'])
     }
 };
 

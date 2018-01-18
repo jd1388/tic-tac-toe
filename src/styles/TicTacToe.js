@@ -43,5 +43,15 @@ export default {
     },
     redScore: {
         color: '#CE6E6E'
+    },
+    blueNextTurn: {
+        borderWidth: '0 1rem 1rem 0',
+        borderStyle: 'solid',
+        borderColor: '#1F1FAB'
+    },
+    redNextTurn: {
+        borderWidth: '0 0 1rem 1rem',
+        borderStyle: 'solid',
+        borderColor: '#AD0E2A'
     }
 }
