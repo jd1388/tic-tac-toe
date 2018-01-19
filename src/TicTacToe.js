@@ -14,7 +14,7 @@ const styleInfoContainer = (player, nextMove) => {
 
 export class TicTacToe extends Component {
     render() {
-        const { playerData, game } = this.props;
+        const { playerData, game, updateCell } = this.props;
 
         return (
             <div>
@@ -32,11 +32,23 @@ export class TicTacToe extends Component {
                     <span style={Styles.redScore}>{playerData.red.score}</span>
                 </div>
                 <div style={Styles.gameboardContainer}>
-                    <BoardRow/>
+                    <BoardRow
+                        position={0}
+                        updateCell={updateCell}
+                        player={game.nextMove}
+                    />
                     <hr style={Styles.horizontalLine}/>
-                    <BoardRow/>
+                    <BoardRow
+                        position={1}
+                        updateCell={updateCell}
+                        player={game.nextMove}
+                    />
                     <hr style={Styles.horizontalLine}/>
-                    <BoardRow/>
+                    <BoardRow
+                        position={2}
+                        updateCell={updateCell}
+                        player={game.nextMove}
+                    />
                 </div>
             </div>
         );
@@ -49,6 +61,20 @@ const mapStateToProps = state => {
     return {
         playerData: PlayerData,
         game: Game
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateCell: (player, position) => {
+            const action = {
+                type: Actions.game.makeMove,
+                player,
+                position
+            };
+
+            dispatch(action);
+        }
     }
 };
 
