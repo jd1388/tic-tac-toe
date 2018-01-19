@@ -37,18 +37,21 @@ export class TicTacToe extends Component {
                         position={0}
                         updateCell={updateCell}
                         player={game.nextMove}
+                        row={game.board[0]}
                     />
                     <hr style={Styles.horizontalLine}/>
                     <BoardRow
                         position={1}
                         updateCell={updateCell}
                         player={game.nextMove}
+                        row={game.board[1]}
                     />
                     <hr style={Styles.horizontalLine}/>
                     <BoardRow
                         position={2}
                         updateCell={updateCell}
                         player={game.nextMove}
+                        row={game.board[2]}
                     />
                 </div>
             </div>
