@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import BoardRow from './helpers/components/BoardRow';
+import Actions from './reducers/Actions';
 
 import Styles from './styles/TicTacToe';
 
