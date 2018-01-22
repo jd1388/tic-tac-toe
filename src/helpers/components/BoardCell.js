@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CircleOutlineIcon from 'mdi-react/CircleOutlineIcon';
+import CloseIcon from 'mdi-react/CloseIcon';
 
 import Styles from '../../styles/components/BoardCell';
 
@@ -6,9 +8,9 @@ const CellMarker = props => {
     const { symbol } = props;
 
     if (symbol === 'O')
-        return <div style={Styles.o}></div>
+        return <CircleOutlineIcon style={Styles.o}></CircleOutlineIcon>
     else if (symbol ==='X')
-        return <div style={Styles.x}></div>
+        return <CloseIcon style={Styles.x}></CloseIcon>
 
     return <div></div>;
 };
