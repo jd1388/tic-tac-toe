@@ -27,7 +27,7 @@ export default class BoardCell extends Component {
         return (
             <div
                 style={Styles.boardCellContainer}
-                onClick={updateCell.bind(null, player, position)}
+                onClick={cell === ' ' ? updateCell.bind(null, player, position) : null}
             >
                 <CellMarker symbol={cell}/>
             </div>

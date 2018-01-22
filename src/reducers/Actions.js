@@ -12,6 +12,7 @@ export default class Actions {
 
     static game = {
         setGameState: i++,
-        makeMove: i++
+        makeMove: i++,
+        toggleNextPlayer: i++
     }
 }

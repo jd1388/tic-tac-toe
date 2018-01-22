@@ -71,13 +71,16 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateCell: (player, position) => {
-            const action = {
+            const moveAction = {
                 type: Actions.game.makeMove,
                 player,
                 position
+            }, toggleNextPlayerAction = {
+                type: Actions.game.toggleNextPlayer
             };
 
-            dispatch(action);
+            dispatch(moveAction);
+            dispatch(toggleNextPlayerAction);
         }
     }
 };
