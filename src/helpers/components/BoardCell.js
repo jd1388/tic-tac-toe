@@ -17,10 +17,18 @@ const CellMarker = props => {
 
 export default class BoardCell extends Component {
     render() {
-        const { cell } = this.props;
+        const {
+            cell,
+            updateCell,
+            player,
+            position
+        } = this.props;
 
         return (
-            <div style={Styles.boardCellContainer}>
+            <div
+                style={Styles.boardCellContainer}
+                onClick={updateCell.bind(null, player, position)}
+            >
                 <CellMarker symbol={cell}/>
             </div>
         );
