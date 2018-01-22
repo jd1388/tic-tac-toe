@@ -25,9 +25,17 @@ export default (state = getInitialState(), action) => {
             return setState(state, 'blue', Object.assign({}, state.blue, {
                 name: action.name
             }));
+        case Actions.playerData.blue.incrementScore:
+            return setState(state, 'blue', Object.assign({}, state.blue, {
+                score: state.blue.score + 1
+            }));
         case Actions.playerData.red.setName:
-            return setState(state, 'red', Object.assign({}, state.blue, {
+            return setState(state, 'red', Object.assign({}, state.red, {
                 name: action.name
+            }));
+        case Actions.playerData.red.incrementScore:
+            return setState(state, 'red', Object.assign({}, state.red, {
+                score: state.red.score + 1
             }));
         default:
             return state;

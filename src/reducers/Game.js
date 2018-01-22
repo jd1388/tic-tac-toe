@@ -19,7 +19,8 @@ const getInitialState = () => {
         nextMove: chance.pickone(['blue', 'red']),
         board: initializeBoard(),
         winner: '',
-        catsGame: false
+        catsGame: false,
+        incrementScore: false
     }
 };
 
@@ -55,24 +56,24 @@ const getNextPlayer = currentPlayer => {
 const checkForWinCondition = state => {
     const { board } = state;
 
-    const horizontalWin = (board[0][0] === board[0][1] && board[0][0] === board[0][2])
-        || (board[1][0] === board[1][1] && board[1][0] === board[1][2])
-        || (board[2][0] === board[2][1] && board[2][0] === board[2][2]);
+    const horizontalWin = (board[0][0] !== ' ' && board[0][0] === board[0][1] && board[0][0] === board[0][2])
+        || (board[1][0] !== ' ' && board[1][0] === board[1][1] && board[1][0] === board[1][2])
+        || (board[2][0] !== ' ' && board[2][0] === board[2][1] && board[2][0] === board[2][2]);
 
-    const verticalWin = (board[0][0] === board[1][0] && board[0][0] === board[2][0])
-        || (board[0][1] === board[1][1] && board[0][1] === board[2][1])
-        || (board[0][2] === board[1][2] && board[0][2] === board[2][2]);
+    const verticalWin = (board[0][0] !== ' ' && board[0][0] === board[1][0] && board[0][0] === board[2][0])
+        || (board[0][1] !== ' ' && board[0][1] === board[1][1] && board[0][1] === board[2][1])
+        || (board[0][2] !== ' ' && board[0][2] === board[1][2] && board[0][2] === board[2][2]);
 
-    const diagonalWin = (board[0][0] === board[1][1] && board[0][0]=== board[2][2])
-        || (board[2][0] === board[1][1] && board[2][0] === board[0][2]);
-
-    if (horizontalWin || verticalWin || diagonalWin) {
-        return setState(state, 'winner', state.nextMove);
-    }
+    const diagonalWin = (board[0][0] !== ' ' && board[0][0] === board[1][1] && board[0][0]=== board[2][2])
+        || (board[2][0] !== ' ' && board[2][0] === board[1][1] && board[2][0] === board[0][2]);
 
     const catsGame = !(board[0].includes(' ') && board[1].includes(' ') && board[2].includes(' '));
 
-    if (catsGame) {
+    if ((horizontalWin || verticalWin || diagonalWin) && !state.winner) {
+        const stateWithUpdatedWinner = setState(state, 'winner', state.nextMove);
+
+        return setState(stateWithUpdatedWinner, 'incrementScore', true);
+    } else if (catsGame) {
         return setState(state, 'catsGame', true);
     }
 
@@ -95,6 +96,8 @@ export default (state = getInitialState(), action) => {
             return checkForWinCondition(newState);
         case Actions.game.toggleNextPlayer:
             return setState(state, 'nextMove', getNextPlayer(state.nextMove));
+        case Actions.game.scoreIncremented:
+            return setState(state, 'incrementScore', false);
         default:
             return state;
     }

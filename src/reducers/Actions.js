@@ -3,16 +3,19 @@ let i = 0;
 export default class Actions {
     static playerData = {
         blue: {
-            setName: i++
+            setName: i++,
+            incrementScore: i++
         },
         red: {
-            setName: i++
+            setName: i++,
+            incrementScore: i++
         }
     }
 
     static game = {
         setGameState: i++,
         makeMove: i++,
-        toggleNextPlayer: i++
+        toggleNextPlayer: i++,
+        scoreIncremented: i++
     }
 }

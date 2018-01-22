@@ -14,8 +14,19 @@ const styleInfoContainer = (player, nextMove) => {
 }
 
 export class TicTacToe extends Component {
+    componentWillUpdate(nextProps) {
+        const { game, updateWinnerScore } = nextProps;
+
+        if (game.incrementScore)
+            updateWinnerScore(game.winner);
+    }
+
     render() {
-        const { playerData, game, updateCell } = this.props;
+        const {
+            playerData,
+            game,
+            updateCell
+        } = this.props;
 
         return (
             <div>
@@ -81,6 +92,16 @@ const mapDispatchToProps = dispatch => {
 
             dispatch(moveAction);
             dispatch(toggleNextPlayerAction);
+        },
+        updateWinnerScore: player => {
+            const updateWinnerScoreAction = {
+                type: Actions.playerData[player].incrementScore
+            }, updateScoreIncrementedAction = {
+                type: Actions.game.scoreIncremented
+            };
+
+            dispatch(updateWinnerScoreAction);
+            dispatch(updateScoreIncrementedAction);
         }
     }
 };
