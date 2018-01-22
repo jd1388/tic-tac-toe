@@ -17,7 +17,9 @@ const getInitialState = () => {
     return {
         gameState: GameStates.start,
         nextMove: chance.pickone(['blue', 'red']),
-        board: initializeBoard()
+        board: initializeBoard(),
+        winner: '',
+        catsGame: false
     }
 };
 
@@ -29,9 +31,9 @@ const updateBoard = (previousBoard, player, position) => {
     const positionToUpdate = position % 3;
 
     if (player === 'red')
-        newRow[position % 3] = 'O';
+        newRow[positionToUpdate] = 'O';
     else
-        newRow[position % 3] = 'X';
+        newRow[positionToUpdate] = 'X';
 
     if (rowToUpdate === 0)
         newBoard.push(newRow, previousBoard[1], previousBoard[2]);
@@ -50,6 +52,33 @@ const getNextPlayer = currentPlayer => {
     return 'blue'
 };
 
+const checkForWinCondition = state => {
+    const { board } = state;
+
+    const horizontalWin = (board[0][0] === board[0][1] && board[0][0] === board[0][2])
+        || (board[1][0] === board[1][1] && board[1][0] === board[1][2])
+        || (board[2][0] === board[2][1] && board[2][0] === board[2][2]);
+
+    const verticalWin = (board[0][0] === board[1][0] && board[0][0] === board[2][0])
+        || (board[0][1] === board[1][1] && board[0][1] === board[2][1])
+        || (board[0][2] === board[1][2] && board[0][2] === board[2][2]);
+
+    const diagonalWin = (board[0][0] === board[1][1] && board[0][0]=== board[2][2])
+        || (board[2][0] === board[1][1] && board[2][0] === board[0][2]);
+
+    if (horizontalWin || verticalWin || diagonalWin) {
+        return setState(state, 'winner', state.nextMove);
+    }
+
+    const catsGame = !(board[0].includes(' ') && board[1].includes(' ') && board[2].includes(' '));
+
+    if (catsGame) {
+        return setState(state, 'catsGame', true);
+    }
+
+    return state;
+}
+
 const setState = (previousState, property, value) => {
     return Object.assign({}, previousState, {
         [property]: value
@@ -61,7 +90,9 @@ export default (state = getInitialState(), action) => {
         case Actions.game.setGameState:
             return setState(state, 'gameState', action.state);
         case Actions.game.makeMove:
-            return setState(state, 'board', updateBoard(state.board, action.player, action.position));
+            const newState = setState(state, 'board', updateBoard(state.board, action.player, action.position));
+
+            return checkForWinCondition(newState);
         case Actions.game.toggleNextPlayer:
             return setState(state, 'nextMove', getNextPlayer(state.nextMove));
         default:
