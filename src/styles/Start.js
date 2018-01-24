@@ -24,7 +24,7 @@ export default {
     },
     bluePlayerInput: {
         borderRadius: '0.5rem',
-        borderColor: '#1F1FAB',
+        borderColor: '#2B7BC0',
         borderStyle: 'solid',
         width: '50%',
         padding: '0.5rem',
@@ -50,7 +50,7 @@ export default {
     },
     redPlayerInput: {
         borderRadius: '0.5rem',
-        borderColor: '#AD0E2A',
+        borderColor: '#AA4343',
         borderStyle: 'solid',
         width: '50%',
         padding: '0.5rem',

@@ -48,12 +48,12 @@ export default {
     blueNextTurn: {
         borderWidth: '0 1rem 1rem 0',
         borderStyle: 'solid',
-        borderColor: '#1F1FAB'
+        borderColor: '#2B7BC0'
     },
     redNextTurn: {
         borderWidth: '0 0 1rem 1rem',
         borderStyle: 'solid',
-        borderColor: '#AD0E2A'
+        borderColor: '#AA4343'
     },
     actionButtonContainer: {
         width: '40%',
