@@ -32,7 +32,8 @@ export default {
     },
     scoreContainer: {
         textAlign: 'center',
-        fontSize: '4rem'
+        fontSize: '4rem',
+        marginTop: '-7rem'
     },
     headerContainer: {
         display: 'flex',
@@ -53,5 +54,29 @@ export default {
         borderWidth: '0 0 1rem 1rem',
         borderStyle: 'solid',
         borderColor: '#AD0E2A'
+    },
+    actionButtonContainer: {
+        width: '40%',
+        margin: '0 auto',
+        paddingBottom: '8rem'
+    },
+    homeButton: {
+        fontSize: '1.5rem',
+        padding: '0.75rem',
+        width: '10rem',
+        borderRadius: '1.5rem',
+        borderStyle: 'none',
+        color: 'white',
+        float: 'right',
+        backgroundColor: 'green'
+    },
+    restartButton: {
+        fontSize: '1.5rem',
+        padding: '0.75rem',
+        width: '10rem',
+        borderRadius: '1.5rem',
+        borderStyle: 'none',
+        color: 'white',
+        backgroundColor: 'green',
     }
 }

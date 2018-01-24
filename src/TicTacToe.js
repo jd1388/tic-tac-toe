@@ -13,6 +13,17 @@ const styleInfoContainer = (player, nextMove) => {
     return Styles[`${player}InfoContainer`];
 }
 
+const ActionButtons = props => {
+    const { gameOver } = props;
+
+    return (
+        <div style={Styles.actionButtonContainer}>
+            <button style={Styles.restartButton}>Restart</button>
+            <button style={Styles.homeButton}>Home</button>
+        </div>
+    );
+}
+
 export class TicTacToe extends Component {
     componentWillUpdate(nextProps) {
         const { game, updateWinnerScore } = nextProps;
@@ -65,6 +76,7 @@ export class TicTacToe extends Component {
                         row={game.board[2]}
                     />
                 </div>
+                <ActionButtons gameOver={game.winner}/>
             </div>
         );
     }
