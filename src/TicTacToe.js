@@ -24,6 +24,16 @@ const ActionButtons = props => {
     );
 }
 
+const EndGameMessage = props => {
+    const { winner } = props;
+
+    if (winner) {
+        return <div style={Styles.endGameMessageContainer}>Winner has been found!</div>
+    }
+
+    return <div style={Styles.endGameMessageContainer}>No winner yet!</div>
+}
+
 export class TicTacToe extends Component {
     componentWillUpdate(nextProps) {
         const { game, updateWinnerScore } = nextProps;
@@ -56,6 +66,7 @@ export class TicTacToe extends Component {
                     <span>{' - '}</span>
                     <span style={Styles.redScore}>{playerData.red.score}</span>
                 </div>
+                <EndGameMessage winner={game.winner}/>
                 <div style={Styles.gameboardContainer}>
                     <BoardRow
                         position={0}

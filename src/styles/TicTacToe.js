@@ -22,7 +22,7 @@ export default {
     gameboardContainer: {
         width: '50rem',
         height: '50rem',
-        margin: '8rem auto'
+        margin: '3rem auto 4rem auto'
     },
     horizontalLine: {
         borderWidth: '0.5rem',
@@ -58,7 +58,7 @@ export default {
     actionButtonContainer: {
         width: '40%',
         margin: '0 auto',
-        paddingBottom: '8rem'
+        paddingBottom: '4rem'
     },
     homeButton: {
         fontSize: '1.5rem',
@@ -78,5 +78,12 @@ export default {
         borderStyle: 'none',
         color: 'white',
         backgroundColor: 'green',
+    },
+    endGameMessageContainer: {
+        textAlign: 'center',
+        paddingTop: '3rem',
+        fontSize: '2rem',
+        lineHeight: 0,
+        height: '2rem'
     }
 }
