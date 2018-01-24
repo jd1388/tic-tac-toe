@@ -10,7 +10,13 @@ const getCellPosition = (row, position) => {
 
 export default class BoardRow extends Component {
     render() {
-        const { position, updateCell, player, row } = this.props;
+        const {
+            position,
+            updateCell,
+            player,
+            row,
+            gameOver
+        } = this.props;
 
         return (
             <div style={Styles.boardRowContainer}>
@@ -19,6 +25,7 @@ export default class BoardRow extends Component {
                     updateCell={updateCell}
                     player={player}
                     cell={row[0]}
+                    gameOver={gameOver}
                 />
                 <div style={Styles.verticalLine}></div>
                 <BoardCell
@@ -26,6 +33,7 @@ export default class BoardRow extends Component {
                     updateCell={updateCell}
                     player={player}
                     cell={row[1]}
+                    gameOver={gameOver}
                 />
                 <div style={Styles.verticalLine}></div>
                 <BoardCell
@@ -33,6 +41,7 @@ export default class BoardRow extends Component {
                     updateCell={updateCell}
                     player={player}
                     cell={row[2]}
+                    gameOver={gameOver}
                 />
             </div>
         );

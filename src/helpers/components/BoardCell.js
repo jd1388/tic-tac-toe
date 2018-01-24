@@ -21,13 +21,14 @@ export default class BoardCell extends Component {
             cell,
             updateCell,
             player,
-            position
+            position,
+            gameOver
         } = this.props;
 
         return (
             <div
                 style={Styles.boardCellContainer}
-                onClick={cell === ' ' ? updateCell.bind(null, player, position) : null}
+                onClick={cell === ' ' && !gameOver ? updateCell.bind(null, player, position) : null}
             >
                 <CellMarker symbol={cell}/>
             </div>

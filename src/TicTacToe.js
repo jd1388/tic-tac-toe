@@ -87,6 +87,7 @@ export class TicTacToe extends Component {
                         updateCell={updateCell}
                         player={game.nextMove}
                         row={game.board[0]}
+                        gameOver={game.winner}
                     />
                     <hr style={Styles.horizontalLine}/>
                     <BoardRow
@@ -94,6 +95,7 @@ export class TicTacToe extends Component {
                         updateCell={updateCell}
                         player={game.nextMove}
                         row={game.board[1]}
+                        gameOver={game.winner}
                     />
                     <hr style={Styles.horizontalLine}/>
                     <BoardRow
@@ -101,6 +103,7 @@ export class TicTacToe extends Component {
                         updateCell={updateCell}
                         player={game.nextMove}
                         row={game.board[2]}
+                        gameOver={game.winner}
                     />
                 </div>
                 <ActionButtons gameOver={game.winner} actions={{restartGame, goToHome}}/>
