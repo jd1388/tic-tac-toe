@@ -37,6 +37,8 @@ export default (state = getInitialState(), action) => {
             return setState(state, 'red', Object.assign({}, state.red, {
                 score: state.red.score + 1
             }));
+        case Actions.reset:
+            return getInitialState();
         default:
             return state;
     }

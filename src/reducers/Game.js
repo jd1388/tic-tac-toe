@@ -98,6 +98,13 @@ export default (state = getInitialState(), action) => {
             return setState(state, 'nextMove', getNextPlayer(state.nextMove));
         case Actions.game.scoreIncremented:
             return setState(state, 'incrementScore', false);
+        case Actions.game.restartGame:
+            return Object.assign({}, getInitialState(), {
+                gameState: GameStates.game.inProgress,
+                nextMove: state.nextMove
+            });
+        case Actions.reset:
+            return getInitialState();
         default:
             return state;
     }

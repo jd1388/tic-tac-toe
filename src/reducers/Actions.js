@@ -1,6 +1,8 @@
 let i = 0;
 
 export default class Actions {
+    static reset = i++;
+
     static playerData = {
         blue: {
             setName: i++,
@@ -10,12 +12,13 @@ export default class Actions {
             setName: i++,
             incrementScore: i++
         }
-    }
+    };
 
     static game = {
         setGameState: i++,
         makeMove: i++,
         toggleNextPlayer: i++,
-        scoreIncremented: i++
-    }
+        scoreIncremented: i++,
+        restartGame: i++
+    };
 }

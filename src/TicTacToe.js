@@ -14,12 +14,12 @@ const styleInfoContainer = (player, nextMove) => {
 }
 
 const ActionButtons = props => {
-    const { gameOver } = props;
+    const { gameOver, actions } = props;
 
     return (
         <div style={Styles.actionButtonContainer}>
-            <button style={Styles.restartButton}>Restart</button>
-            <button style={Styles.homeButton}>Home</button>
+            <button style={Styles.restartButton} onClick={actions.restartGame}>Restart</button>
+            <button style={Styles.homeButton} onClick={actions.goToHome}>Home</button>
         </div>
     );
 }
@@ -36,7 +36,9 @@ export class TicTacToe extends Component {
         const {
             playerData,
             game,
-            updateCell
+            updateCell,
+            restartGame,
+            goToHome
         } = this.props;
 
         return (
@@ -76,7 +78,7 @@ export class TicTacToe extends Component {
                         row={game.board[2]}
                     />
                 </div>
-                <ActionButtons gameOver={game.winner}/>
+                <ActionButtons gameOver={game.winner} actions={{restartGame, goToHome}}/>
             </div>
         );
     }
@@ -114,6 +116,20 @@ const mapDispatchToProps = dispatch => {
 
             dispatch(updateWinnerScoreAction);
             dispatch(updateScoreIncrementedAction);
+        },
+        restartGame: () => {
+            const action = {
+                type: Actions.game.restartGame
+            };
+
+            dispatch(action);
+        },
+        goToHome: () => {
+            const action = {
+                type: Actions.reset
+            }
+
+            dispatch(action);
         }
     }
 };
