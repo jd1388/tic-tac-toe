@@ -85,5 +85,11 @@ export default {
         fontSize: '2rem',
         lineHeight: 0,
         height: '2rem'
+    },
+    redWinnerMessage: {
+        color: '#CE6E6E'
+    },
+    blueWinnerMessage: {
+        color: '#73B1E6'
     }
 }

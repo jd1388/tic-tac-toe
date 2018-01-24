@@ -25,13 +25,21 @@ const ActionButtons = props => {
 }
 
 const EndGameMessage = props => {
-    const { winner } = props;
+    const { winner, winningPlayer } = props;
 
-    if (winner) {
-        return <div style={Styles.endGameMessageContainer}>Winner has been found!</div>
+    const getWinnerMessageStyling = player => {
+        return Object.assign({}, Styles.endGameMessageContainer, Styles[`${player}WinnerMessage`]);
     }
 
-    return <div style={Styles.endGameMessageContainer}>No winner yet!</div>
+    if (winner) {
+        return (
+            <div style={getWinnerMessageStyling(winner)}>
+                {`${winningPlayer} has won!`}
+            </div>
+        );
+    }
+
+    return <div style={Styles.endGameMessageContainer}></div>
 }
 
 export class TicTacToe extends Component {
@@ -66,7 +74,10 @@ export class TicTacToe extends Component {
                     <span>{' - '}</span>
                     <span style={Styles.redScore}>{playerData.red.score}</span>
                 </div>
-                <EndGameMessage winner={game.winner}/>
+                <EndGameMessage
+                    winner={game.winner}
+                    winningPlayer={playerData[`${game.winner}`] ? playerData[`${game.winner}`].name : ''}
+                />
                 <div style={Styles.gameboardContainer}>
                     <BoardRow
                         position={0}
