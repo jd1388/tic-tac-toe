@@ -25,7 +25,7 @@ const ActionButtons = props => {
 }
 
 const EndGameMessage = props => {
-    const { winner, winningPlayer } = props;
+    const { winner, winningPlayer, draw } = props;
 
     const getWinnerMessageStyling = player => {
         return Object.assign({}, Styles.endGameMessageContainer, Styles[`${player}WinnerMessage`]);
@@ -37,6 +37,8 @@ const EndGameMessage = props => {
                 {`${winningPlayer} has won!`}
             </div>
         );
+    } else if (draw) {
+        return <div style={Styles.endGameMessageContainer}>Cat's game!</div>
     }
 
     return <div style={Styles.endGameMessageContainer}></div>
@@ -77,6 +79,7 @@ export class TicTacToe extends Component {
                 <EndGameMessage
                     winner={game.winner}
                     winningPlayer={playerData[`${game.winner}`] ? playerData[`${game.winner}`].name : ''}
+                    draw={game.catsGame}
                 />
                 <div style={Styles.gameboardContainer}>
                     <BoardRow

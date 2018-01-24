@@ -67,7 +67,7 @@ const checkForWinCondition = state => {
     const diagonalWin = (board[0][0] !== ' ' && board[0][0] === board[1][1] && board[0][0]=== board[2][2])
         || (board[2][0] !== ' ' && board[2][0] === board[1][1] && board[2][0] === board[0][2]);
 
-    const catsGame = !(board[0].includes(' ') && board[1].includes(' ') && board[2].includes(' '));
+    const catsGame = !(board[0].includes(' ') || board[1].includes(' ') || board[2].includes(' '));
 
     if ((horizontalWin || verticalWin || diagonalWin) && !state.winner) {
         const stateWithUpdatedWinner = setState(state, 'winner', state.nextMove);
