@@ -58,26 +58,35 @@ export default {
     actionButtonContainer: {
         width: '40%',
         margin: '0 auto',
-        paddingBottom: '4rem'
+        paddingBottom: '4rem',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'space-evenly'
     },
     homeButton: {
         fontSize: '1.5rem',
-        padding: '0.75rem',
-        width: '10rem',
+        padding: '0.75rem 1rem',
         borderRadius: '1.5rem',
         borderStyle: 'none',
         color: 'white',
         float: 'right',
-        backgroundColor: 'green'
+        backgroundColor: 'green',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        cursor: 'pointer'
     },
     restartButton: {
         fontSize: '1.5rem',
-        padding: '0.75rem',
-        width: '10rem',
+        padding: '0.75rem 1rem',
         borderRadius: '1.5rem',
         borderStyle: 'none',
         color: 'white',
         backgroundColor: 'green',
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        cursor: 'pointer'
     },
     endGameMessageContainer: {
         textAlign: 'center',
@@ -91,5 +100,9 @@ export default {
     },
     blueWinnerMessage: {
         color: '#73B1E6'
+    },
+    restartIcon: {
+        fill: 'white',
+        height: '1.5rem'
     }
 }

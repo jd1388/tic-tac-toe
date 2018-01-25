@@ -70,9 +70,11 @@ export default {
         color: 'white'
     },
     startButtonEnabled: {
-        backgroundColor: 'green'
+        backgroundColor: 'green',
+        cursor: 'pointer'
     },
     startButtonDisabled: {
-        backgroundColor: 'grey'
+        backgroundColor: 'grey',
+        cursor: 'not-allowed'
     }
 }

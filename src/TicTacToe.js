@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import HomeIcon from 'mdi-react/HomeIcon';
+import RefreshIcon from 'mdi-react/RefreshIcon';
 
 import BoardRow from './helpers/components/BoardRow';
 import Actions from './reducers/Actions';
@@ -14,12 +16,26 @@ const styleInfoContainer = (player, nextMove) => {
 }
 
 const ActionButtons = props => {
-    const { gameOver, actions } = props;
+    const { actions } = props;
+
+    console.log(actions);
 
     return (
         <div style={Styles.actionButtonContainer}>
-            <button style={Styles.restartButton} onClick={actions.restartGame}>Restart</button>
-            <button style={Styles.homeButton} onClick={actions.goToHome}>Home</button>
+            <div
+                style={Styles.restartButton}
+                onClick={actions.restartGame}
+            >
+                <RefreshIcon style={Styles.restartIcon}/>
+                <span>Restart</span>
+            </div>
+            <div
+                style={Styles.homeButton}
+                onClick={actions.goToHome}
+            >
+                <HomeIcon style={Styles.restartIcon}/>
+                <span>Home</span>
+            </div>
         </div>
     );
 }
