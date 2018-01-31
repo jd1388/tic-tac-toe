@@ -19,7 +19,7 @@ const stateToRender = gameState => {
     return <TicTacToe/>;
 }
 
-class App extends Component {
+export class App extends Component {
     render() {
         const { gameState } = this.props;
 
