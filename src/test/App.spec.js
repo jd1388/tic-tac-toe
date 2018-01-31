@@ -32,5 +32,5 @@ describe('<App/>', () => {
         const game = wrapper.children();
 
         expect(game).toHaveLength(1);
-    })
+    });
 });
