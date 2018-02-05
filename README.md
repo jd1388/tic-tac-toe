@@ -6,5 +6,5 @@ To setup the project, clone the repo. Also, make sure to have [Node JS](https://
 
 Once npm has installed all of the dependencies, run `npm start` to run the project. Your browser should pop up with the project running.
 
-## Building
-If you want to build the project for whatever reason, you can do so by running `npm build`.
+## Tests
+To run tests, go to the project inside of your terminal, then run `npm test`. This will start the Jest test runner, which provides instructions for running tests. By default, it will run any tests that have changed since the last commit.
